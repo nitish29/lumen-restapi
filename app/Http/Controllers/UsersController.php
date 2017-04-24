@@ -332,6 +332,44 @@ class UsersController extends Controller
 
     }
 
+    public function searchUserByLastNameFirstNameAndGender($last_name, $first_name, $gender) {
+
+        $users = DB::table('users')
+                        ->where('last_name', '=' , $last_name)
+                        ->where('first_name', '=' , $first_name)
+                        ->where('gender', '=' , $gender)->paginate(50);
+
+        if ( !$users->isEmpty() ) {
+
+            return $this->success($users, 200);
+
+        } else {
+
+           return $this->error('User Not Found', 404); 
+
+        }
+
+    }
+
+    public function searchUserByLastNameFirstNameAndAge($last_name, $first_name, $age) {
+
+        $users = DB::table('users')
+                        ->where('last_name', '=' , $last_name)
+                        ->where('first_name', '=' , $first_name)
+                        ->where('age', '=' , $age)->paginate(50);
+
+        if ( !$users->isEmpty() ) {
+
+            return $this->success($users, 200);
+
+        } else {
+
+           return $this->error('User Not Found', 404); 
+
+        }
+
+    }
+
 
 
 }

@@ -43,6 +43,10 @@ $app->group(['prefix' => 'api/v1'], function($app)
 	$app->get('users/gender/{gender:[A-Za-z]+}', 'UsersController@searchUserByGender');
 
 	$app->get('users/lastName/{last_name:[A-Za-z]+}/firstName/{first_name:[A-Za-z]+}', 'UsersController@searchUserByLastNameAndFirstName');
+
+	$app->get('users/lastName/{last_name:[A-Za-z]+}/firstName/{first_name:[A-Za-z]+}/gender/{gender:[A-Za-z]+}', 'UsersController@searchUserByLastNameFirstNameAndGender');
+
+	$app->get('users/lastName/{last_name:[A-Za-z]+}/firstName/{first_name:[A-Za-z]+}/age/{age:[0-9]+}', 'UsersController@searchUserByLastNameFirstNameAndAge');
 	
 	//initial test route to test for response time
 	$app->get('users','UsersController@index');
