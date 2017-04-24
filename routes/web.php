@@ -16,16 +16,6 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-/*Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
-   //var_dump($query->sql); // Dumps sql
-   //var_dump($query->bindings); //Dumps data passed to query
-   var_dump($query->time); //Dumps time sql took to be processed
-});*/
-
-// $app->get('users/{id}', function($id) use ($app) {
-
-// 	return Users::findOrFail($id);
-
 $app->group(['prefix' => 'api/v1'], function($app)
 {
 	$app->get('users/lastName/{last_name:[A-Za-z]+}/firstName/{first_name:[A-Za-z]+}/gender/{gender:[A-Za-z]+}/age/{age:[0-9]+}', 'UsersController@searchUserByAllAttributes');
@@ -54,12 +44,13 @@ $app->group(['prefix' => 'api/v1'], function($app)
 
 	$app->get('users/lastName/{last_name:[A-Za-z]+}/firstName/{first_name:[A-Za-z]+}', 'UsersController@searchUserByLastNameAndFirstName');
 	
-	
-	$app->get('users/el', 'UsersController@searchUserDetailsUsingEloquent');
-	$app->get('users/qb', 'UsersController@searchUserDetailsUsingQueryBuilder');
-	$app->get('users/raw', 'UsersController@searchUserDetailsUsingRawSQL');
+	//initial test route to test for response time
 	$app->get('users','UsersController@index');
-	$app->get('users/{user_id}','UsersController@searchUserDetails');
+	
+	/*$app->get('users/el', 'UsersController@searchUserDetailsUsingEloquent');
+	$app->get('users/qb', 'UsersController@searchUserDetailsUsingQueryBuilder');
+	$app->get('users/raw', 'UsersController@searchUserDetailsUsingRawSQL');*/
+	
 
 
 });

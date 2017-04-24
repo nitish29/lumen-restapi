@@ -30,13 +30,14 @@ class UsersController extends Controller
 
         } else {
 
-            return $this->error('Error fetch all users from database', 404);
+            return $this->error('Error fetching all users from database', 404);
 
         }
         
 
     }
 
+    //helper functions to test out query execution time
     public function searchUserDetailsUsingEloquent() {
         
         //DB::connection()->enableQueryLog();
@@ -56,6 +57,7 @@ class UsersController extends Controller
 
     }
 
+    //helper functions to test out query execution time
     public function searchUserDetailsUsingQueryBuilder() {
         
         //DB::connection()->enableQueryLog();
@@ -75,9 +77,10 @@ class UsersController extends Controller
 
     }
 
+    //helper functions to test out query execution time
     public function searchUserDetailsUsingRawSQL() {
         
-        $users = DB::select('select * from users')->paginate();
+        $users = DB::select('select * from users')->get();
 
         if ( $users ) {
 
@@ -93,13 +96,6 @@ class UsersController extends Controller
     }
 
     public function searchUserByAllAttributes($last_name, $first_name, $gender, $age) {
-        
-        //DB::connection()->enableQueryLog();
-        
-        /*$users = Users::where('last_name', '=' , $last_name)
-        ->where('first_name', '=' , $first_name)
-        ->where('age', '=' , $age)
-        ->where('gender', '=' , $gender)->get();*/
 
         $users = DB::table('users')
                         ->where('last_name', '=' , $last_name)
