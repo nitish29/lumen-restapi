@@ -138,8 +138,9 @@ In my quest to make the API response times faster, I tried various different app
 Addtional Thoughts/Caveats
 ----
 - While adding indexes makes response time faster, adding indexes to all/some columns might not be a good idea when they are many columns.
-- I also though about caching using redis coupled with pagination, but since our implementation only deals with fetching(GET requests) information at the moment, pagination seemeed to serve our needs well(i.e keeping response times under 1 second). Moreover, even though space is cheap, overhead of maintaining data at two places seemed overkill considering the scope of this API.
-- 
+- I also thought about caching using redis coupled with pagination, but since our implementation only deals with fetching(GET requests) information at the moment, pagination seemeed to serve our needs well(i.e keeping response time under 1 second). Moreover, even though space is cheap, overhead of maintaining data at two places seemed overkill considering the scope of this API.
+
+
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
    [git-repo-url]: <https://github.com/joemccann/dillinger.git>
