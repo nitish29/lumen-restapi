@@ -13,8 +13,7 @@
 // use App\Users;
 
 $app->get('/', function () use ($app) {
-    //return $app->version();
-    return phpinfo();
+    return $app->version();
 });
 
 /*Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
@@ -29,7 +28,7 @@ $app->get('/', function () use ($app) {
 
 $app->group(['prefix' => 'api/v1'], function($app)
 {
-	$app->get('users/lastName/{last_name:[A-Za-z]+}/firstName/{first_name:[A-Za-z]+}/gender/{gender:[A-Za-z]+}/age/{age:[0-9]+}', 'UsersController@searchUsersByAllAttributes');
+	$app->get('users/lastName/{last_name:[A-Za-z]+}/firstName/{first_name:[A-Za-z]+}/gender/{gender:[A-Za-z]+}/age/{age:[0-9]+}', 'UsersController@searchUserByAllAttributes');
 
 	$app->get('users/lastName/{last_name:[A-Za-z]+}', 'UsersController@searchUserByLastName');
 
@@ -37,7 +36,7 @@ $app->group(['prefix' => 'api/v1'], function($app)
 
 	$app->get('users/lastName/{last_name:[A-Za-z]+}/gender/{gender:[A-Za-z]+}', 'UsersController@searchUserByLastNameAndGender');
 
-	$app->get('users/lastName/{last_name:[A-Za-z]+}/gender/{gender:[A-Za-z]+}/age/{age:[0-9]+}', 'UsersController@searchUserByLastNameAgeAndGender');
+	$app->get('users/lastName/{last_name:[A-Za-z]+}/gender/{gender:[A-Za-z]+}/age/{age:[0-9]+}', 'UsersController@searchUserByLastNameGenderAndAge');
 
 	$app->get('users/firstName/{first_name:[A-Za-z]+}', 'UsersController@searchUserByFirstName');
 
@@ -45,11 +44,13 @@ $app->group(['prefix' => 'api/v1'], function($app)
 
 	$app->get('users/firstName/{first_name:[A-Za-z]+}/gender/{gender:[A-Za-z]+}', 'UsersController@searchUserByFirstNameAndGender');
 
-	$app->get('users/firstName/{first_name:[A-Za-z]+}/gender/{gender:[A-Za-z]+}/age/{age:[0-9]+}', 'UsersController@searchUserByFirstNameAgeAndGender');
+	$app->get('users/firstName/{first_name:[A-Za-z]+}/gender/{gender:[A-Za-z]+}/age/{age:[0-9]+}', 'UsersController@searchUserByFirstNameGenderAndAge');
 
 	$app->get('users/age/{age:[0-9]+}', 'UsersController@searchUserByAge');
 
-	$app->get('users/gender/{gender:[A-Za-z]+}/age/{age:[0-9]+}', 'UsersController@searchUserByAgeAndGender');
+	$app->get('users/gender/{gender:[A-Za-z]+}/age/{age:[0-9]+}', 'UsersController@searchUserByGenderAndAge');
+
+	$app->get('users/gender/{gender:[A-Za-z]+}', 'UsersController@searchUserByGender');
 
 	$app->get('users/lastName/{last_name:[A-Za-z]+}/firstName/{first_name:[A-Za-z]+}', 'UsersController@searchUserByLastNameAndFirstName');
 	

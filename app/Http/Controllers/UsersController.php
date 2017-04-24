@@ -92,7 +92,7 @@ class UsersController extends Controller
 
     }
 
-    public function searchUsersByAllAttributes($last_name, $first_name, $gender, $age) {
+    public function searchUserByAllAttributes($last_name, $first_name, $gender, $age) {
         
         //DB::connection()->enableQueryLog();
         
@@ -175,7 +175,7 @@ class UsersController extends Controller
 
     }
 
-    public function searchUserByLastNameAgeAndGender($last_name, $age, $gender) {
+    public function searchUserByLastNameGenderAndAge($last_name, $gender, $age) {
 
         $users = DB::table('users')
                         ->where('last_name', '=' , $last_name)
@@ -247,7 +247,7 @@ class UsersController extends Controller
 
     }
 
-    public function searchUserByFirstNameAgeAndGender($first_name, $age, $gender) {
+    public function searchUserByFirstNameGenderAndAge($first_name, $gender, $age) {
 
         $users = DB::table('users')
                         ->where('first_name', '=' , $first_name)
@@ -283,7 +283,24 @@ class UsersController extends Controller
 
     }
 
-    public function searchUserByAgeAndGender($age, $gender) {
+    public function searchUserByGender($gender) {
+
+        $users = DB::table('users')
+                        ->where('gender', '=' , $gender)->paginate(30);
+
+        if ( !$users->isEmpty() ) {
+
+            return $this->success($users, 200);
+
+        } else {
+
+           return $this->error('Users Not Found', 404); 
+
+        }
+
+    }
+
+    public function searchUserByGenderAndAge($gender,$age) {
 
         $users = DB::table('users')
                         ->where('age', '=' , $age)

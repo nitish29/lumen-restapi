@@ -48,7 +48,8 @@ class Handler extends ExceptionHandler
     {
         if ($e instanceof NotFoundHttpException) {
         
-            $message = 'Bad Request URL - Resource Not Found';
+            //var_dump($e->getMessage());
+            $message = 'Bad Request URL/Invalid Request Params Provided';
             return response()->json(['error_message' => $message], 404);
 
         }   
