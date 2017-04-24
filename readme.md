@@ -27,7 +27,7 @@ For developing this API, I used **Laravel Homestead** to setup my local enviornm
     $ vagrant up
     ```
     > **Note:** You might have to configure the `Homestead.yaml` file. The file is located the project root. You'll have to configure the `folders` and `site` properties in this file, by changing the `map` and `to` attributes for both. And then run `vagrant up` command again. Refer this link on how to change the properties: https://laravel.com/docs/5.4/homestead#per-project-installation
-- Type `restapi.app` in your browser, this should load a page, which mentions the Lumen version. Something lik this `Lumen (5.4.6) (Laravel Components 5.4.*)`.
+- Type `restapi.app` in your browser, this should load a page, which mentions the Lumen version. Something like this `Lumen (5.4.6) (Laravel Components 5.4.*)`.
 - Finally, Migrate the database schema and insert(seed) dummy values into it. 
     ```sh
         $ vagrant ssh // enter this command to log into to your virtual machine
@@ -137,7 +137,7 @@ In my quest to make the API response times faster, I tried various different app
 
 Addtional Thoughts/Caveats
 ----
-- While adding indexes makes response time faster, adding indexes to all/some columns might not be a good idea when they are many columns.
+- While adding indexes makes response time faster, adding indexes to all/some columns might not be a good idea when there are many columns.
 - I also thought about caching using redis coupled with pagination, but since our implementation only deals with fetching(GET requests) information at the moment, pagination seemeed to serve our needs well(i.e keeping response time under 1 second). Moreover, even though space is cheap, overhead of maintaining data at two places seemed overkill considering the scope of this API.
 
 
