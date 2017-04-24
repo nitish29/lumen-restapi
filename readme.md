@@ -39,7 +39,9 @@ For developing this API, I used **Laravel Homestead** to setup my local enviornm
 REST API End-points description
 ------------
 
-I have exposed a total of 13 end-points. These end points allow searching data pertaining to users based on first name, last name, age, and gender. I thought about making a single controller action that parses input request parameters, however, after reading few articles on best REST practices, I found out that there is no hard-and-fast rule on how many end points you should expose. Therefore, I decided to make dedicated end-points, based on different combinations of request parameters provided. This allowed me to handle the queries at a more granular level, thereby enabling me to provide dedicated end-points to serve these requests individually. 
+I have exposed a total of 13 end-points. These end points allow searching data pertaining to users based on first name, last name, age, and gender. I thought about making a single controller action that parses input request parameters, however, after reading few articles on best REST practices, I found out that there is no hard-and-fast rule on how many end points you should expose. Therefore, I decided to make dedicated end-points, based on different combinations of request parameters provided. 
+- This allowed me to handle the queries at a more granular level, thereby enabling me to provide dedicated end-points to serve these requests individually. 
+- Furthermore, if any refactoring was required(for any particular end-point) this ensured that the appropriate controller action was changed without breaking the rest of the implementation. 
 
 **Request Parameters:**
 
@@ -74,7 +76,7 @@ Design Considerations and Obeservations:
 
 In my quest to make the API response times faster, I tried various different approaches just to see the impact all of them would have on the API response time. I tried retrieving records using Eloquent, Query Builder and Raw SQL. 
 
-> **Note:** I used `Faker` to seed `10K records` `1M records`.
+> **Note:** I used `Faker` to seed `10K records` and `1M records`.
 
 **API response times:**
 
