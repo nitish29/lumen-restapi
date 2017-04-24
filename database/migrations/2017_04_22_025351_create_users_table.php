@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name', 100)->nullable();
             $table->string('last_name', 100)->nullable();
             $table->integer('age')->nullable();
-            $table->enum('gender', ['male', 'female','other']);
+            $table->enum('gender', ['male', 'female']);
             $table->index('first_name');
             $table->index('last_name');
             $table->index('age');

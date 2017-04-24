@@ -105,7 +105,7 @@ class UsersController extends Controller
                         ->where('last_name', '=' , $last_name)
                         ->where('first_name', '=' , $first_name)
                         ->where('age', '=' , $age)
-                        ->where('gender', '=' , $gender)->paginate(30);
+                        ->where('gender', '=' , $gender)->paginate(100);
 
     
         if ( !$users->isEmpty() ) {
@@ -123,7 +123,7 @@ class UsersController extends Controller
     public function searchUserByLastName($last_name){
 
         $users = DB::table('users')
-                        ->where('last_name', '=' , $last_name)->paginate(30);
+                        ->where('last_name', '=' , $last_name)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -143,7 +143,7 @@ class UsersController extends Controller
 
         $users = DB::table('users')
                         ->where('last_name', '=' , $last_name)
-                        ->where('age', '=' , $age)->paginate(30);
+                        ->where('age', '=' , $age)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -161,7 +161,7 @@ class UsersController extends Controller
 
         $users = DB::table('users')
                         ->where('last_name', '=' , $last_name)
-                        ->where('gender', '=' , $gender)->paginate(30);
+                        ->where('gender', '=' , $gender)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -180,7 +180,7 @@ class UsersController extends Controller
         $users = DB::table('users')
                         ->where('last_name', '=' , $last_name)
                         ->where('age', '=' , $age)
-                        ->where('gender', '=' , $gender)->paginate(30);
+                        ->where('gender', '=' , $gender)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -197,7 +197,7 @@ class UsersController extends Controller
     public function searchUserByFirstName($first_name) {
 
         $users = DB::table('users')
-                        ->where('first_name', '=' , $first_name)->paginate(30);
+                        ->where('first_name', '=' , $first_name)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -215,7 +215,7 @@ class UsersController extends Controller
 
         $users = DB::table('users')
                         ->where('first_name', '=' , $first_name)
-                        ->where('age', '=' , $age)->paginate(30);
+                        ->where('age', '=' , $age)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -233,7 +233,7 @@ class UsersController extends Controller
 
         $users = DB::table('users')
                         ->where('first_name', '=' , $first_name)
-                        ->where('age', '=' , $age)->paginate(30);
+                        ->where('gender', '=' , $gender)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -252,7 +252,7 @@ class UsersController extends Controller
         $users = DB::table('users')
                         ->where('first_name', '=' , $first_name)
                         ->where('age', '=' , $age)
-                        ->where('gender', '=' , $gender)->paginate(30);
+                        ->where('gender', '=' , $gender)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -269,7 +269,7 @@ class UsersController extends Controller
     public function searchUserByAge($age) {
 
         $users = DB::table('users')
-                        ->where('age', '=' , $age)->paginate(30);
+                        ->where('age', '=' , $age)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -286,7 +286,7 @@ class UsersController extends Controller
     public function searchUserByGender($gender) {
 
         $users = DB::table('users')
-                        ->where('gender', '=' , $gender)->paginate(30);
+                        ->where('gender', '=' , $gender)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -304,7 +304,7 @@ class UsersController extends Controller
 
         $users = DB::table('users')
                         ->where('age', '=' , $age)
-                        ->where('gender', '=' , $gender)->paginate(30);
+                        ->where('gender', '=' , $gender)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 
@@ -322,7 +322,7 @@ class UsersController extends Controller
 
         $users = DB::table('users')
                         ->where('last_name', '=' , $last_name)
-                        ->where('first_name', '=' , $first_name)->paginate(30);
+                        ->where('first_name', '=' , $first_name)->paginate(100);
 
         if ( !$users->isEmpty() ) {
 

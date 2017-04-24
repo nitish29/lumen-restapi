@@ -26,7 +26,7 @@ For developing this API, I used **Laravel Homestead** to setup my local enviornm
     ```sh
     $ vagrant up
     ```
-    > **Note:** You might have to configure the `Homestead.yaml` file. The file is located the project root. You'll have to configure the `folders` and `site` properties in this file, by changing the `map` and `to` attributes for both. And then run `vagrant up` command again. Refer this link on how to change the properties: https://laravel.com/docs/5.4/homestead#per-project-installation
+    > **Note:** You might have to configure the `Homestead.yaml` file. The file is located inside project root. You'll have to configure the `folders` and `site` properties in this file, by changing the `map` and `to` attributes for both. And then run `vagrant up` command again. Refer this link on how to change the properties: https://laravel.com/docs/5.4/homestead#per-project-installation
 - Type `restapi.app` in your browser, this should load a page, which mentions the Lumen version. Something like this `Lumen (5.4.6) (Laravel Components 5.4.*)`.
 - Finally, Migrate the database schema and insert(seed) dummy values into it. 
     ```sh
@@ -73,6 +73,8 @@ Design Considerations and Obeservations:
 ----
 
 In my quest to make the API response times faster, I tried various different approaches just to see the impact all of them would have on the API response time. I tried retrieving records using Eloquent, Query Builder and Raw SQL. 
+
+> **Note:** I used `Faker` to seed `10K records` `1M records`.
 
 **API response times:**
 
@@ -138,7 +140,7 @@ In my quest to make the API response times faster, I tried various different app
 Addtional Thoughts/Caveats
 ----
 - While adding indexes makes response time faster, adding indexes to all/some columns might not be a good idea when there are many columns.
-- I also thought about caching using redis coupled with pagination, but since our implementation only deals with fetching(GET requests) information at the moment, pagination seemeed to serve our needs well(i.e keeping response time under 1 second). Moreover, even though space is cheap, overhead of maintaining data at two places seemed overkill considering the scope of this API.
+- I also thought about caching results using redis along with pagination, but since our implementation only deals with fetching(GET requests) information at the moment, pagination seemeed to serve our needs well(i.e keeping response time under 1 second). Moreover, even though space is cheap, overhead of maintaining data at two places seemed overkill considering the scope of this API.
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
