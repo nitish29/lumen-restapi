@@ -4,6 +4,10 @@ This repository contains the code for a **RESTful API** built on top of Lumen fr
 
 ----------
 
+[API Documentation]
+
+[API Demo]
+
 Installation steps and Setup
 ------------
 
@@ -167,4 +171,6 @@ FUTURE - API Version 2 Considerations
    [Composer]: <https://getcomposer.org/download/>
    [Vagrant]: <https://www.vagrantup.com/downloads.html>
    [Virtual Box]: <https://www.virtualbox.org/wiki/Downloads>
+   [API Documentation]: <http://docs.abletoapi.apiary.io/#>
+   [API Demo]: <https://nitishrest.herokuapp.com/api/v1/users/age/60>
 
