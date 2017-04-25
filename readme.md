@@ -39,9 +39,9 @@ For developing this API, I used **Laravel Homestead** to setup my local enviornm
 REST API End-points description
 ------------
 
-I have exposed a total of 15 end-points. These end points allow searching data pertaining to users based on first name, last name, age, and gender. I thought about making a single controller action that parses input request parameters, however, after reading few articles on best REST practices, I found out that there is no hard-and-fast rule on how many end points you should expose. Therefore, I decided to make dedicated end-points, based on different combinations of request parameters provided. 
-- This allowed me to handle the queries at a more granular level, thereby enabling me to provide dedicated end-points to serve these requests individually. 
-- Furthermore, if any refactoring was required(for any particular end-point) this ensured that the appropriate controller action was changed without breaking the rest of the implementation. 
+I have exposed a total of 15 end-points. These end points allow searching data pertaining to users based on first name, last name, age, and gender. I thought about making a single controller action that parses input request parameters, however, after reading few articles on best REST practices, I found out that there is `no hard-and-fast rule` on how many end points you should expose. Therefore, I decided to make `dedicated end-points`, based on `different combinations` of request parameters provided. 
+- This allowed me to handle the queries at a more granular level, thereby enabling me to provide dedicated end-points to `serve these requests individually`. 
+- Furthermore, if any refactoring was required(for any particular end-point) this ensured that the appropriate controller action was changed `without breaking the rest of the implementation`. 
 
 **Request Parameters:**
 
@@ -146,6 +146,18 @@ Addtional Thoughts/Caveats
 - While adding indexes makes response time faster, adding indexes to all/some columns might not be a good idea when there are many columns.
 - I also thought about caching results using redis along with pagination, but since our implementation only deals with fetching(GET requests) information at the moment, pagination seemeed to serve our needs well(i.e keeping response time under 1 second). Moreover, even though space is cheap, overhead of maintaining data at two places seemed overkill considering the scope of this API.
 
+FUTURE - API Version 2 Considerations
+------------
+- Depending on the functional requirement of the API, we can add the following methods/end-points in the second version of our API:
+    
+    These end-points would basically extend support for **Filtering:**
+    | Request Type | URI | Desciption |
+    |---------|----------------|--------|
+    | GET | /api/v2/users/filter/less/age/{age}  | Retrieve Users less than a particular age
+     | GET | /api/v2/users/filter/greater/age/{age}  | Retrieve Users greater than a particular age
+    | GET | /api/v2/users/filter/range/age/{age}  | Retrieve Users within a particular age range
+
+- Filtering can be combined with other attributes like `last_name`, `first_name` etc to expose more end-points and to achieve even more fine grained filtering.
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
