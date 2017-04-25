@@ -150,12 +150,14 @@ FUTURE - API Version 2 Considerations
 ------------
 - Depending on the functional requirement of the API, we can add the following methods/end-points in the second version of our API:
     
-    These end-points would basically extend support for **Filtering:**
+    These end-points would basically extend support for **Filtering.**
+    
     | Request Type | URI | Desciption |
-    |---------|----------------|--------|
+    |--------------|-----|------------|
     | GET | /api/v2/users/filter/less/age/{age}  | Retrieve Users less than a particular age
-     | GET | /api/v2/users/filter/greater/age/{age}  | Retrieve Users greater than a particular age
+    | GET | /api/v2/users/filter/greater/age/{age}  | Retrieve Users greater than a particular age
     | GET | /api/v2/users/filter/range/age/{age}  | Retrieve Users within a particular age range
+    
 
 - Filtering can be combined with other attributes like `last_name`, `first_name` etc to expose more end-points and to achieve even more fine grained filtering.
 
